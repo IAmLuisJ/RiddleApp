@@ -1,14 +1,9 @@
 import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration
+   LiveReload, Meta
 } from "remix";
 
 export function meta() {
-  return { title: "New Remix App" };
+  return { title: "Riddle App" };
 }
 
 export default function App() {
@@ -18,12 +13,9 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
-        <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
+        Hello World
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
