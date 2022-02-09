@@ -1,14 +1,10 @@
-import {Outlet} from 'remix';
-function JokesRoute() {
-    return(
-        <div>
-            <h1>Riddles</h1>
-            <main>
-                <Outlet />
-            </main>
-        </div>
-    );
 
+function JokesIndexRoute() {
+    return(
+    <div>
+        <p>Here's a riddle, rendered as a child component.</p>
+        <p>blah blah blah</p>
+    </div>)
 }
 
-export default JokesRoute;
+export default JokesIndexRoute;
