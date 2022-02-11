@@ -1,6 +1,6 @@
 :root {
   --hs-links: 48 100%;
-  --color-foreground: hsl(0, 0%, 100%);
+  --color-foreground: hsl(0, 0%, 0%);
   --color-background: hsl(243, 83%, 45%);
   --color-links: hsl(var(--hs-links) 50%);
   --color-links-hover: hsl(var(--hs-links) 45%);

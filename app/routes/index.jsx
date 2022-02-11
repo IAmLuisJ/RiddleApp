@@ -15,6 +15,8 @@ export default function Index() {
         <Link to="/jokes">Jokes</Link>
         <br></br>
         <Link to="/jokes/new">Create New</Link>
+        <br />
+        <Link to="/login">Login</Link>
     </div>);
 }
 

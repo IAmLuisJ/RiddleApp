@@ -1,10 +1,23 @@
 import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
+//seed function adds mock data to the database
+
 async function seed() {
+  //creates an object under the user model
+const fakeUser = await db.user.create({
+  data: {
+    username: "Faker",
+    passwordHash: "lkjsdfkjhsdkjbzxdkd39234lknsd"
+  }
+})
+
+//once the seed function completes, calls getjokes function and creates joke objects under the joke model
   await Promise.all(
     getJokes().map(joke => {
-      return db.joke.create({ data: joke });
+      //add userID to the joke data returned from getjokes
+      const data = { jokesterId: fakeUser.id, ...joke }
+      return db.joke.create({ data });
     })
   );
 }
