@@ -9,7 +9,7 @@ export const links = () => {
 };
 
 export default function Index() {
-    return(<div>
+    return(<div className="container">
         <h1>Hello, welcome to the app</h1>
         <p>Click below to explore components</p>
         <Link to="/jokes">Jokes</Link>
