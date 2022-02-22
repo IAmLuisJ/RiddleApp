@@ -1,6 +1,7 @@
 import loginStyle from '~/styles/login.css';
 import { Form, Link, useSearchParams, json, redirect, useActionData } from 'remix';
 import {PrismaClient} from '@prisma/client';
+import {login} from '~/utils/session.server';
 
 const db = new PrismaClient();
 
@@ -34,9 +35,9 @@ export const action = async ({request}) => {
     switch(loginType) {
         case "login": {
             //login to get the user
-            const userExists = await db.user.findFirst({ where: {username}});
+            const user = await login({username, password});
             //if there is no user, offer to create user error
-            if(userExists) {   
+            if(!user) {   
                 return json({formError: "No user found"}, { status: 400});
             } else {
                 //if there is a user, create session and redirect to /jokes
