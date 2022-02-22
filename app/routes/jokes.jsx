@@ -58,7 +58,6 @@ function JokesRoute() {
                     <Outlet />
                 </div>
                 </div>
-                
             </main>
         </div>
     );

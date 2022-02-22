@@ -1,4 +1,4 @@
-import { Form, redirect, json } from "remix";
+import { Form, redirect, json, useActionData } from "remix";
 import {PrismaClient} from '@prisma/client';
 
 const db = new PrismaClient();
@@ -30,12 +30,16 @@ export const action = async ({request}) => {
     if(name.length < 2) {
         return json({formError: "name too short"}, {status: 400});
     }
+
+    
     //use the client object db, 
     const joke = await db.joke.create({ data: { name, content }});
     return redirect(`/jokes/${joke.id}`);
 }
 
 function New() {
+    //actions usually redirect user after processing, but they can return a response or a javascript object, containing errors
+    const actionData = useActionData();
     return (<div>
         <h1>Add your own joke to the Database</h1>
         <Form method="post">
@@ -45,6 +49,7 @@ function New() {
             <input type="text" name="content" />
             <button type="submit" className="button">Submit</button>
         </Form>
+        {actionData?.formError ? <h1>"Error"</h1> : null}
     </div>)
 }
 
