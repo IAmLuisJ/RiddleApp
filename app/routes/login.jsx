@@ -41,6 +41,7 @@ export const action = async ({request}) => {
                 return json({formError: "No user found"}, { status: 400});
             } else {
                 //if there is a user, create session and redirect to /jokes
+                console.log(user);
             return redirect("/jokes");
             }
         }

@@ -7,8 +7,8 @@ async function seed() {
   //creates an object under the user model
 const fakeUser = await db.user.create({
   data: {
-    username: "Faker",
-    passwordHash: "lkjsdfkjhsdkjbzxdkd39234lknsd"
+    username: "kody",
+    passwordHash: "$2b$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u"
   }
 })
 
