@@ -1,8 +1,7 @@
 import {Outlet, useLoaderData, Link} from 'remix';
 import jokeStyle from '~/styles/jokes.css';
-import { PrismaClient } from "@prisma/client";
+import { db } from '~/utils/db.server';
 
-const db = new PrismaClient();
 
 //export link to stylesheet
 export const links = ()=> {

@@ -1,7 +1,5 @@
 import { Form, redirect, json, useActionData } from "remix";
-import {PrismaClient} from '@prisma/client';
-
-const db = new PrismaClient();
+import { db } from "~/utils/db.server";
 
 //function to validate server side
 function validateJokeContent(content) {

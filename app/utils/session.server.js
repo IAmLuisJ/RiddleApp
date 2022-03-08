@@ -1,8 +1,7 @@
-import {PrismaClient} from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import { redirect, createCookieSessionStorage } from 'remix';
+import {db} from '~/utils/db.server';
 
-const db = new PrismaClient();
 
 export async function login(username, password) {
 //export a function called login that accepts username and password
@@ -56,6 +55,10 @@ export async function createUserSession(userID, route) {
 
 function getUserSession(request) {
     return storage.getSession(request.headers.get("Cookie"));
+}
+
+export async function getUserId(request) {
+    
 }
 
 

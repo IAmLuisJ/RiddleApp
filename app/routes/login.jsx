@@ -1,9 +1,9 @@
 import loginStyle from '~/styles/login.css';
 import { Form, Link, useSearchParams, json, redirect, useActionData } from 'remix';
-import {PrismaClient} from '@prisma/client';
+import { db } from '~/utils/db.server';
 import {createUserSession, login} from '~/utils/session.server';
 
-const db = new PrismaClient();
+
 
 function validatePassword(password) {
     if(password.length < 2) {

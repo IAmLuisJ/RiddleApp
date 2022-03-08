@@ -1,7 +1,6 @@
 import { useLoaderData } from "remix";
-import { PrismaClient} from '@prisma/client';
+import { db } from "~/utils/db.server";
 
-const db = new PrismaClient();
 export const loader = async ({params})=> {
     //load joke from ID that should be in the route params
     const joke = await db.joke.findUnique({where: { id: params.jokeID }});
